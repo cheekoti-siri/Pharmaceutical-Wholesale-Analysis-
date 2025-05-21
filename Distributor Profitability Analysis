@@ -1,0 +1,41 @@
+#Overview
+This project examines the profitability of pharmaceutical distributors by analyzing drug sales across different U.S. regions. By leveraging a combination of data engineering, data cleaning, BigQuery analytics, and visualization, we were able to identify top-performing distributors and high-demand drugs in each region.
+
+#Use Case
+Goal: Project demand for pharmaceutical products and evaluate distributor performance.
+Industry: Healthcare (Pharmaceutical Wholesale)
+Core Questions:
+Which drugs are top-selling in each region?
+Which distributors yield the highest profit margins?
+How do wholesale costs impact overall revenue?
+
+#Tools & Technologies
+Data Cleaning: OpenRefine, Excel
+Data Storage & Processing: Google Cloud Platform (GCP), BigQuery, Cloud Dataproc
+Visualization: Jupyter Notebooks (Matplotlib)
+Languages: SQL, Python
+
+#Data Sources
+Static Data: Google Drive Dataset
+Streaming Data: Data.gov
+
+#Data Preparation
+Cleaned and transformed 7,000+ rows using OpenRefine.
+Corrected misspelled entries using clustering methods (e.g., Daitch-Mokotoff).
+Calculated missing values (e.g., Gross Profit, Margin) using Excel formulas.
+
+#BigQuery Analysis
+Custom SQL queries with ROW_NUMBER() allowed selection of top-selling drugs by region and calculated:
+Total order revenue
+Gross profit margins
+Distributor-specific performance
+
+#Visualizations
+Generated visual insights including:
+Total Sales by Distributor
+Profit by Distributor
+Market Share (Pie Chart)
+Top Drugs per Region
+
+#Conclusion
+Distributor B dominated in profitability across two regions with margins up to 99%, demonstrating strategic sales deployment. Distributor A and C also showed strong regional performance.
