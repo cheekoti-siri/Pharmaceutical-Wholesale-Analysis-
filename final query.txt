@@ -1,0 +1,46 @@
+WITH SalesData AS (
+  SELECT
+    Drug_Name,
+    Rx_Dosage_Type,
+    Rx_Distributor,
+    Dispensed_Region,
+    Dispensed_State,
+    Rx_Units_Sold,
+    Distributor_Retail_Sales_Price__per_Unit_,
+    Total_Order_Revenue,
+    MSRP__per_Unit_,
+    Total_Order_Revenue_at_MSRP,
+    Distributer_Wholesale_Cost__per_Unit_,
+    Distributor_Total_Wholesale_Cost,
+    Order_Gross_Profit,
+    Order_Gross_Profit_at_MSRP,
+    Order_Gross_Profit_Margin,
+    Order_Gross_Profit_Margin_at_MSRP,
+    ROW_NUMBER() OVER (PARTITION BY Dispensed_Region ORDER BY Rx_Units_Sold DESC) AS RowNum
+  FROM
+    adta5240a5chesc.pharmacy.siri
+)
+SELECT
+  Drug_Name,
+  Rx_Dosage_Type,
+  Rx_Distributor,
+  Dispensed_Region,
+  Dispensed_State,
+  Rx_Units_Sold,
+  Distributor_Retail_Sales_Price__per_Unit_,
+  Total_Order_Revenue,
+  MSRP__per_Unit_,
+  Total_Order_Revenue_at_MSRP,
+  Distributer_Wholesale_Cost__per_Unit_,
+  Distributor_Total_Wholesale_Cost,
+  Order_Gross_Profit,
+  Order_Gross_Profit_at_MSRP,
+  Order_Gross_Profit_Margin,
+  Order_Gross_Profit_Margin_at_MSRP
+FROM
+  SalesData
+WHERE
+  RowNum = 1; 
+Yes, the above query is suitable for the specified use case. It addresses the need to analyze distributor performance, identify top-selling drugs in specific regions, and calculate resulting profits after accounting for wholesale expenses. The use of the `ROW_NUMBER()` window function in the Common Table Expression (CTE) named `SalesData` ensures that only the top-selling drug for each region is selected.
+
+This query provides valuable information on drug sales, distributor details, and related financial metrics, enabling you to gain insights into the demand for pharmaceutical products and distributor profitability. If you have any specific criteria or additional requirements for the analysis, feel free to provide them, and I can assist further in refining the query.
